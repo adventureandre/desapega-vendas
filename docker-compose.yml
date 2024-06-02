@@ -1,0 +1,18 @@
+services:
+  # db mysql
+  db:
+    container_name: DB-
+    image: bitnami/mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+    networks:
+      - adv-network
+
+networks:
+  adv-network:
+    driver: bridge
