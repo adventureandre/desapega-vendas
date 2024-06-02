@@ -1,7 +1,7 @@
 services:
   # db mysql
   db:
-    container_name: DB-
+    container_name: DB-DESAPEGA
     image: bitnami/mysql:latest
     restart: always
     environment:
