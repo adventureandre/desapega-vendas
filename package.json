@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -13,7 +13,8 @@
     "next": "14.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
