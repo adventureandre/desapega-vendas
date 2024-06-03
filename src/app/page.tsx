@@ -1,12 +1,7 @@
-'use client'
-
-import Theme from '@/styles/Theme'
-import { ThemeProvider } from 'styled-components'
-
 export default function Home() {
   return (
-    <ThemeProvider theme={Theme}>
-      <p>home</p>
-    </ThemeProvider>
+    // <ThemeProvider theme={Theme}>
+    <p>home</p>
+    // </ThemeProvider>
   )
 }
