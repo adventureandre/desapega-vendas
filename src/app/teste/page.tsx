@@ -1,4 +1,4 @@
-import { prisma } from '@/lib/prisma'
+import { userStore } from '../../../store/userStore'
 
 export default function Home() {
   async function handleUser(form: FormData) {
@@ -10,12 +10,8 @@ export default function Home() {
       return
     }
 
-    const user = await prisma.user.findMany({
-      where: {
-        email,
-      },
-    })
-    console.log(user)
+    const user = await userStore.getState().findbyEmail(email)
+    console.log('user', user)
   }
 
   return (

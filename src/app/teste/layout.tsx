@@ -10,5 +10,11 @@ export const metadata: Metadata = {
   description: 'pagina de teste',
 }
 export default async function TestLayout({ children }: TestLayoutProps) {
-  return <main>{children}</main>
+  return (
+    <html>
+      <body>
+        <main>{children}</main>
+      </body>
+    </html>
+  )
 }
