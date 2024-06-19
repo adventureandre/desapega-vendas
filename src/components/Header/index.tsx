@@ -1,7 +1,6 @@
 import ImgLogo from '@/images/logo.png'
 import Image from 'next/image'
 import {
-  FaClock,
   FaLinkedin,
   FaGooglePlus,
   FaTwitter,
