@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   return (
-    <form action={handleUser} method="POST">
+    <form action={handleUser}>
       <input type="text" name="name" placeholder="sulug" />
       <button type="submit">Consutar</button>
     </form>
