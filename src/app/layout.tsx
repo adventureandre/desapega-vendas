@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body className={inter.className}>
-        <StyledJsxRegistry>{children}</StyledJsxRegistry>
-      </body>
+      <StyledJsxRegistry>
+        <body className={inter.className}>{children}</body>
+      </StyledJsxRegistry>
     </html>
   )
 }
