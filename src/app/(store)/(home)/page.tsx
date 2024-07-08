@@ -1,7 +1,12 @@
 import { api } from '@/data/api'
 
 export default async function Home() {
-  const response = await api('/user')
+  const response = await api('/user', {
+    // cache:'no-store'
+    next: {
+      revalidate: 60 * 60, // 1hour
+    },
+  })
   const data = await response.json()
 
   return (
