@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        zero: '0',
+      },
       fontFamily: {
         sans: 'Roboto',
       },

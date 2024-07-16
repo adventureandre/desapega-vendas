@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <StyledJsxRegistry>
-        <body className={(roboto.className, 'bg-zinc-950 text-zinc-100')}>
+        <body className={(roboto.className, 'bg-slate-100 text-black')}>
           {children}
         </body>
       </StyledJsxRegistry>
