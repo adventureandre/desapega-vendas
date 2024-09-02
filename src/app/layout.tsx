@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import '@/styles/globals.css'
-import StyledJsxRegistry from '@/lib/registry'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -24,11 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <StyledJsxRegistry>
-        <body className={(roboto.className, 'bg-desapegaFundo text-black')}>
-          {children}
-        </body>
-      </StyledJsxRegistry>
+      <body className={(roboto.className, 'bg-desapegaFundo text-black')}>
+        {children}
+      </body>
     </html>
   )
 }

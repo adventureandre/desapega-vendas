@@ -1,23 +1,21 @@
-'use client'
-import { useEffect } from 'react'
-import { userStore } from '@/store/userStore'
+import { Suspense } from 'react'
+import { headers } from 'next/headers'
 
-export default function Teste() {
-  const { users, load } = userStore((store) => {
-    return {
-      users: store.users,
-      load: store.load,
-    }
-  })
+function IP() {
+  const FALLBACK_IP_ADDRESS = '0.0.0.0'
+  const forwardedFor = headers().get('x-forwarded-for')
 
-  useEffect(() => {
-    load()
-  }, [])
+  if (forwardedFor) {
+    return forwardedFor.split(',')[0] ?? FALLBACK_IP_ADDRESS
+  }
 
+  return headers().get('x-real-ip') ?? FALLBACK_IP_ADDRESS
+}
+
+export default function Page() {
   return (
-    <div>
-      <h1>Teste</h1>
-      <pre>{JSON.stringify(users, null, 2)}</pre>
-    </div>
+    <Suspense fallback={null}>
+      <IP />
+    </Suspense>
   )
 }
