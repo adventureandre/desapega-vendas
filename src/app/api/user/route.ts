@@ -30,9 +30,6 @@ export async function GET() {
     )
 
     return response
-
-
-
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to fetch users' },
