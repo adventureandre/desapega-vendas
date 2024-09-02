@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <StyledJsxRegistry>
-        <body className={(roboto.className, 'bg-slate-100 text-black')}>
+        <body className={(roboto.className, 'bg-desapegaFundo text-black')}>
           {children}
         </body>
       </StyledJsxRegistry>

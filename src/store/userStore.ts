@@ -1,3 +1,4 @@
+import { api } from '@/lib/api'
 import { prisma } from '@/lib/prisma'
 import { create } from 'zustand'
 
@@ -10,14 +11,31 @@ interface User {
 }
 
 type UserStore = {
-  getAllUsers: () => Promise<User[]>
+  users: User[] | null
+  isLoading: boolean
+  load: () => Promise<void>
   findbyEmail: (email: string) => Promise<User | null>
 }
 
-export const userStore = create<UserStore>(() => ({
-  getAllUsers: async () => {
-    const allUsers = await prisma.user.findMany()
-    return allUsers
+export const userStore = create<UserStore>((set, get) => ({
+  // States
+  users: null,
+  isLoading: true,
+
+  // functions
+  load: async () => {
+    set({ isLoading: true })
+    try {
+      const response = await api('/user')
+      const allUsers: User[] = await response.json()
+
+      set({
+        users: allUsers,
+        isLoading: false,
+      })
+    } catch (error) {
+      console.error('Failed to fetch users:', error)
+    }
   },
 
   findbyEmail: async (email: string) => {

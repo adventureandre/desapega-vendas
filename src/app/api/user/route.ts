@@ -1,7 +1,11 @@
-import { userStore } from '@/store/userStore'
+import { prisma } from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const allUsers = await userStore.getState().getAllUsers()
-  return NextResponse.json(allUsers)
+  try {
+    const allUsers = await prisma.user.findMany()
+    return NextResponse.json(allUsers)
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to fetch users' })
+  }
 }

@@ -7,6 +7,13 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      desapegaFundo: '#e1e1e1',
+      desapegaWhite: 'white',
+      desapegaYellow: '#ff7e3b',
+      desapegaRed: '#e81a5d',
+      desapegaBlue: '#00a8fb',
+    },
     extend: {
       fontSize: {
         zero: '0',

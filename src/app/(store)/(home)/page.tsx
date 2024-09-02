@@ -3,13 +3,8 @@ import Image from 'next/image'
 import logo from '@/images/logo.png'
 import carrinhoDeBb from '@/images/carinho-de-bb.png'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
-import {
-  Carousel,
-  handleNextExternal,
-  handlePrevExternal,
-} from '@/components/carousel'
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <header className="flex justify-between flex-col gap-2">
@@ -63,20 +58,18 @@ export default function Home() {
         </nav>
       </header>
       <main className="space-y-6 flex justify-center">
-        <section className="mx-[250px] space-y-6 min-w-[400px]">
+        <section className="max-w-[1100px] space-y-6 min-w-[400px]">
           <div className="py-4 border-b border-gray-400">
             <div className="flex justify-between items-center ">
               <h2 className="text-3xl text-zinc-400">Novos</h2>
               <div className="flex gap-2 ">
                 <button
-                  onClick={handlePrevExternal}
                   className="bg-zinc-300 text-gray-900 rounded-sm p-2 hover:bg-gray-500 hover:text-gray-200"
                   aria-label="Previous"
                 >
                   <IoIosArrowBack />
                 </button>
                 <button
-                  onClick={handleNextExternal}
                   className="bg-zinc-400 text-gray-900 rounded-sm p-2 hover:bg-gray-600 hover:text-gray-200"
                   aria-label="Next"
                 >
@@ -86,9 +79,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <Carousel>
-              <article className="p-2 rounded-md bg-zinc-200 min-h-[350px] min-w-[270px]">
+          <div className="flex justify-center gap-3">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <article
+                key={i}
+                className="p-2 rounded-md bg-desapegaWhite min-h-[350px] min-w-[270px]"
+              >
                 <Image
                   className="w-[250px] h-[326px]"
                   src={carrinhoDeBb}
@@ -102,67 +98,7 @@ export default function Home() {
                 <p className="text-zinc-600">sem marca</p>
                 <p className="text-zinc-600">Wakter Johson - Unico</p>
               </article>
-
-              <article className="p-2 rounded-md bg-zinc-200 min-h-[350px] min-w-[270px]">
-                <Image
-                  className="w-[250px] h-[326px]"
-                  src={carrinhoDeBb}
-                  alt=""
-                  width={450}
-                />
-                <span className="text-zinc-900">R$2.500,00</span>
-                <h3 className="text-md text-zinc-900 text-left">
-                  Carrinho de Bebê
-                </h3>
-                <p className="text-zinc-600">sem marca</p>
-                <p className="text-zinc-600">Wakter Johson - Unico</p>
-              </article>
-
-              <article className="p-2 rounded-md bg-zinc-200 min-h-[350px] min-w-[270px]">
-                <Image
-                  className="w-[250px] h-[326px]"
-                  src={carrinhoDeBb}
-                  alt=""
-                  width={450}
-                />
-                <span className="text-zinc-900">R$2.500,00</span>
-                <h3 className="text-md text-zinc-900 text-left">
-                  Carrinho de Bebê
-                </h3>
-                <p className="text-zinc-600">sem marca</p>
-                <p className="text-zinc-600">Wakter Johson - Unico</p>
-              </article>
-
-              <article className="p-2 rounded-md bg-zinc-200 min-h-[350px] min-w-[270px]">
-                <Image
-                  className="w-[250px] h-[326px]"
-                  src={carrinhoDeBb}
-                  alt=""
-                  width={450}
-                />
-                <span className="text-zinc-900">R$2.500,00</span>
-                <h3 className="text-md text-zinc-900 text-left">
-                  Carrinho de Bebê
-                </h3>
-                <p className="text-zinc-600">sem marca</p>
-                <p className="text-zinc-600">Wakter Johson - Unico</p>
-              </article>
-
-              <article className="p-2 rounded-md bg-zinc-200 min-h-[350px] min-w-[270px]">
-                <Image
-                  className="w-[250px] h-[326px]"
-                  src={carrinhoDeBb}
-                  alt=""
-                  width={450}
-                />
-                <span className="text-zinc-900">R$2.500,00</span>
-                <h3 className="text-md text-zinc-900 text-left">
-                  Carrinho de Bebê
-                </h3>
-                <p className="text-zinc-600">sem marca</p>
-                <p className="text-zinc-600">Wakter Johson - Unico</p>
-              </article>
-            </Carousel>
+            ))}
           </div>
         </section>
       </main>
