@@ -16,7 +16,7 @@ export async function GET() {
 
   if (!allowedOrigins.includes(origin)) {
     return NextResponse.json(
-      { error: 'CORS: Origin not allowed' },
+      { error: 'origin' },
       {
         status: 403, // Forbidden
       },
