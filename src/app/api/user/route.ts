@@ -16,7 +16,7 @@ export async function GET() {
 
   if (!allowedOrigins.includes(origin)) {
     return NextResponse.json(
-      { error: origin },
+      { error: 'Erro cors seu ip e: ' + origin },
       {
         status: 403, // Forbidden
       },
