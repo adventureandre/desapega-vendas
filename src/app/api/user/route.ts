@@ -6,10 +6,11 @@ export async function GET() {
   const allowedOrigins = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'http://desapegavendas.com.br',
+    'https://desapegavendas.com.br',
+    '::1',
   ]
 
-  const origin = headers().get('origin') || ''
+  const origin = headers().get('x-forwarded-for') || ''
 
   console.log(origin)
 
