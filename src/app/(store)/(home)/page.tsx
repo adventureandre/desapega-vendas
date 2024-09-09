@@ -1,61 +1,27 @@
-import React from 'react'
 import Image from 'next/image'
-import logo from '@/images/logo.png'
-import carrinhoDeBb from '@/images/carinho-de-bb.png'
+import React from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
+import { LuSearch } from 'react-icons/lu'
+
+import carrinhoDeBb from '@/images/carinho-de-bb.png'
+import logo from '@/images/logo.png'
 
 export default async function Home() {
   return (
     <>
       <header className="flex justify-between flex-col gap-2">
-        <div className="py-8 px-20">
+        <div className="py-8 px-20 flex items-center">
           <h1 className="text-zero">Desapega Vendas</h1>
-          <Image src={logo} alt="Logo" width={200} />
+          <Image src={logo} alt="Logo" width={100} />
+          <div className="bg-desapegaFundoHover flex gap-1 items-center ml-6 py-2 px-4 rounded-lg">
+            <input
+              className="w-[320px] bg-desapegaFundoHover outline-none text-base "
+              type="text"
+              placeholder="buscar itens"
+            />
+            <LuSearch className=" text-2xl" />
+          </div>
         </div>
-        <nav className="w-full h-16 bg-zinc-300">
-          <ul className="flex justify-around items-center h-full">
-            <li>
-              <a
-                className="px-5 py-3 rounded-md hover:bg-yellow-500 hover:text-zinc-100 transition duration-300"
-                href="#"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                className="px-5 py-3 rounded-md hover:bg-yellow-500 hover:text-zinc-100 transition duration-300"
-                href="#"
-              >
-                Stars
-              </a>
-            </li>
-            <li>
-              <a
-                className="px-5 py-3 rounded-md hover:bg-yellow-500 hover:text-zinc-100 transition duration-300"
-                href="#"
-              >
-                Samples page
-              </a>
-            </li>
-            <li>
-              <a
-                className="px-5 py-3 rounded-md hover:bg-yellow-500 hover:text-zinc-100 transition duration-300"
-                href="#"
-              >
-                Category
-              </a>
-            </li>
-            <li>
-              <a
-                className="px-5 py-3 rounded-md hover:bg-yellow-500 hover:text-zinc-100 transition duration-300"
-                href="#"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
       </header>
       <main className="space-y-6 flex justify-center">
         <section className="max-w-[1100px] space-y-6 min-w-[400px]">
@@ -86,7 +52,7 @@ export default async function Home() {
                 className="p-2 rounded-md bg-desapegaWhite min-h-[350px] min-w-[270px]"
               >
                 <Image
-                  className="w-[250px] h-[326px]"
+                  className="w-[250px] h-[300px] rounded-md"
                   src={carrinhoDeBb}
                   alt=""
                   width={450}

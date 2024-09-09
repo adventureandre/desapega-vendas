@@ -8,7 +8,8 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      desapegaFundo: '#e1e1e1',
+      desapegaFundo: '#ffffff',
+      desapegaFundoHover: '#e2e0e2',
       desapegaWhite: 'white',
       desapegaYellow: '#ff7e3b',
       desapegaRed: '#e81a5d',
