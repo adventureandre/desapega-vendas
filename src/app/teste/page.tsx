@@ -17,6 +17,7 @@ export default function Teste() {
   return (
     <div>
       <h1>Teste</h1>
+
       <pre>{JSON.stringify(users, null, 2)}</pre>
     </div>
   )

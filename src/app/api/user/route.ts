@@ -1,28 +1,7 @@
 import { prisma } from '@/lib/prisma'
-import { headers } from 'next/headers'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const allowedOrigins = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'https://desapegavendas.com.br',
-    '::1',
-  ]
-
-  const origin = headers().get('x-forwarded-for') || ''
-
-  console.log(origin)
-
-  if (!allowedOrigins.includes(origin)) {
-    return NextResponse.json(
-      { error: 'Erro cors seu ip e: ' + origin },
-      {
-        status: 403, // Forbidden
-      },
-    )
-  }
-
   try {
     const allUsers = await prisma.user.findMany()
     return NextResponse.json(allUsers, {
