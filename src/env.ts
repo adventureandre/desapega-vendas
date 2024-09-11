@@ -3,8 +3,8 @@ import { z } from 'zod'
 
 export const env = createEnv({
   server: {
-    // DATABASE_URL: z.string().url(),
-    // SHADOW_DATABASE_URL: z.string().url(),
+    DATABASE_URL: z.string().url(),
+    SHADOW_DATABASE_URL: z.string().url(),
   },
 
   client: {
@@ -12,8 +12,8 @@ export const env = createEnv({
   },
 
   runtimeEnv: {
-    // DATABASE_URL: process.env.DATABASE_URL,
-    // SHADOW_DATABASE_URL: process.env.SHADOW_DATABASE_URL,
+    DATABASE_URL: process.env.DATABASE_URL,
+    SHADOW_DATABASE_URL: process.env.SHADOW_DATABASE_URL,
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
   },
 })

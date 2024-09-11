@@ -9,9 +9,23 @@ datasource db {
 }
 
 model User {
-  id        String     @id @default(uuid())
-  createdAt DateTime @default(now())
-  email     String   @unique
-  name      String?
-  password  String
+  id         String    @id @default(uuid())
+  created_at DateTime  @default(now())
+  email      String    @unique
+  name       String?
+  password   String
+  Product    Product[]
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  img         String
+  price       Float
+  amount      Int
+  user        User     @relation(fields: [user_id], references: [id])
+  created_at  DateTime @default(now())
+  update_at   DateTime
+  user_id     String
 }
