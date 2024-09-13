@@ -38,8 +38,6 @@ async function getProduct(slug: string): Promise<ProductItens | null> {
 export default async function Product({ params }: ProductProps) {
   const items = await getProduct(params.slug)
 
-  console.log(items)
-
   return (
     <>
       <div>{items?.name}</div>
