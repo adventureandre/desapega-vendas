@@ -2,24 +2,13 @@ import { Metadata } from 'next'
 
 import { api } from '@/lib/api'
 
+import { Product as ProductItens } from '../../../../../@types/product'
+
 interface ProductProps {
   params: {
     slug: string
   }
 }
-
-// async function getProduct(slug: string): Promise<Product> {
-//   const response = await api(`/products/${slug}`, {
-//     // cache: 'no-store',
-//     next: {
-//       revalidate: 60 * 60, // 1hour
-//     },
-//   })
-
-//   const products = await response.json()
-
-//   return products
-// }
 
 export async function generateMetadata({
   params,
@@ -29,7 +18,33 @@ export async function generateMetadata({
   }
 }
 
-export default function Product({ params }: ProductProps) {
-  const product = params.slug
-  return <div>{product}</div>
+async function getProduct(slug: string): Promise<ProductItens | null> {
+  const response = await api(`/products/${slug}`, {
+    // cache: 'no-store',
+    next: {
+      revalidate: 60 * 60, // 1hour
+    },
+  })
+
+  const products = await response.json()
+
+  if (products) {
+    return products
+  }
+
+  return null
+}
+
+export default async function Product({ params }: ProductProps) {
+  const items = await getProduct(params.slug)
+
+  console.log(items)
+
+  return (
+    <>
+      <div>{items?.name}</div>
+      <div>{items?.price}</div>
+      <div>{items?.description}</div>
+    </>
+  )
 }

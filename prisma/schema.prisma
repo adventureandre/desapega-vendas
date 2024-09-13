@@ -15,17 +15,22 @@ model User {
   name       String?
   password   String
   Product    Product[]
+
+  @@map("user")
 }
 
 model Product {
-  id          String   @id @default(uuid())
+  id          String    @id @default(uuid())
   name        String
   description String
+  slug        String?
   img         String
   price       Float
   amount      Int
-  user        User     @relation(fields: [user_id], references: [id])
-  created_at  DateTime @default(now())
-  update_at   DateTime
+  user        User      @relation(fields: [user_id], references: [id])
+  created_at  DateTime  @default(now())
+  update_at   DateTime?
   user_id     String
+
+  @@map("product")
 }
