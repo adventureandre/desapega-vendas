@@ -16,5 +16,5 @@ export async function GET(
     },
   })
 
-  return NextResponse.json(product)
+  return NextResponse.json({ product })
 }

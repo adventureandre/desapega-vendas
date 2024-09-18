@@ -26,10 +26,10 @@ async function getProduct(slug: string): Promise<ProductItens | null> {
     },
   })
 
-  const products = await response.json()
+  const { product } = await response.json()
 
-  if (products) {
-    return products
+  if (product) {
+    return product
   }
 
   return null
@@ -46,10 +46,8 @@ export default async function Product({ params }: ProductProps) {
           <div>{items?.price}</div>
           <div>{items?.description}</div>
         </div>
-      ):(
-        <div>
-          esse produto nao existe
-        </div>
+      ) : (
+        <div>esse produto nao existe</div>
       )}
     </>
   )

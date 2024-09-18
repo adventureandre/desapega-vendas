@@ -1,22 +1,29 @@
-"use client"
+'use client'
 
+import { useEffect } from 'react'
+import { DiVim } from 'react-icons/di'
 import { IoIosArrowForward } from 'react-icons/io'
 
+import { itemStore } from '@/store/itemStore'
+
 import { Item } from './items'
-import { userStore } from '@/store/userStore'
 
 export function Main() {
-
-  const items = userStore((store)=>{
+  const { products, isLoading, load } = itemStore((store) => {
     return {
-      items: store.users,
-      
+      products: store.product,
+      isLoading: store.isLoading,
+      load: store.load,
     }
   })
 
+  useEffect(() => {
+    load()
+  }, [])
+
   return (
     <main className="space-y-6 flex justify-center flex-wrap">
-      <section className="max-w-[1100px] space-y-6 min-w-[400px]">
+      <section className="max-w-[1100px] space-y-6 min-w-[400px] w-full">
         <div className="py-4 border-b border-gray-400">
           <div className="flex justify-between items-center ">
             <h2 className="text-3xl text-zinc-400">Novos</h2>
@@ -33,9 +40,11 @@ export function Main() {
         </div>
 
         <div className="flex justify-center gap-3">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Item key={i} />
-          ))}
+          {isLoading ? (
+            <div>Carregando</div>
+          ) : (
+            products?.map((product) => <Item key={product.id} />)
+          )}
         </div>
       </section>
     </main>

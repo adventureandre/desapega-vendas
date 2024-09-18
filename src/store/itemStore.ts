@@ -18,8 +18,8 @@ export const itemStore = create<ItemStore>((set, get) => ({
   load: async () => {
     set({ isLoading: true })
     try {
-      const response = await api('/product')
-      const products: Product[] = await response.json()
+      const response = await api('/products')
+      const { products } = await response.json()
 
       set({
         product: products,
