@@ -40,9 +40,17 @@ export default async function Product({ params }: ProductProps) {
 
   return (
     <>
-      <div>{items?.name}</div>
-      <div>{items?.price}</div>
-      <div>{items?.description}</div>
+      {items ? (
+        <div>
+          <div>{items?.name}</div>
+          <div>{items?.price}</div>
+          <div>{items?.description}</div>
+        </div>
+      ):(
+        <div>
+          esse produto nao existe
+        </div>
+      )}
     </>
   )
 }

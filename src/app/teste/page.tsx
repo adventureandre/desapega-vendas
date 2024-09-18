@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 
 import { userStore } from '@/store/userStore'
+import { Metadata } from 'next' 
 
 export default function Teste() {
   const { users, load } = userStore((store) => {
