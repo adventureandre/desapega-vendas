@@ -29,7 +29,7 @@ model Product {
   amount      Int
   user        User      @relation(fields: [user_id], references: [id])
   created_at  DateTime  @default(now())
-  update_at   DateTime?
+  update_at   DateTime? @updatedAt
   user_id     String
 
   @@map("product")
