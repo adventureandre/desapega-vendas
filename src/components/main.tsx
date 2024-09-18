@@ -1,8 +1,19 @@
+"use client"
+
 import { IoIosArrowForward } from 'react-icons/io'
 
 import { Item } from './items'
+import { userStore } from '@/store/userStore'
 
 export function Main() {
+
+  const items = userStore((store)=>{
+    return {
+      items: store.users,
+      
+    }
+  })
+
   return (
     <main className="space-y-6 flex justify-center flex-wrap">
       <section className="max-w-[1100px] space-y-6 min-w-[400px]">

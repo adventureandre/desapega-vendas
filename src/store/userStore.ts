@@ -20,7 +20,7 @@ type UserStore = {
 export const userStore = create<UserStore>((set, get) => ({
   // States
   users: null,
-  isLoading: true,
+  isLoading: false,
 
   // functions
   load: async () => {
