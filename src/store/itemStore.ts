@@ -18,7 +18,12 @@ export const itemStore = create<ItemStore>((set, get) => ({
   load: async () => {
     set({ isLoading: true })
     try {
-      const response = await api('/products')
+      const response = await api('/products', {
+        // cache: 'no-store',
+        next: {
+          revalidate: 60 * 60, // 1hour
+        },
+      })
       const { products } = await response.json()
 
       set({

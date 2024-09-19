@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect } from 'react'
-import { DiVim } from 'react-icons/di'
 import { IoIosArrowForward } from 'react-icons/io'
 
 import { itemStore } from '@/store/itemStore'
@@ -43,7 +42,7 @@ export function Main() {
           {isLoading ? (
             <div>Carregando</div>
           ) : (
-            products?.map((product) => <Item key={product.id} />)
+            products?.map((product) => <Item key={product.id} item={product} />)
           )}
         </div>
       </section>
