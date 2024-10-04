@@ -1,5 +1,4 @@
 'use client'
-import { Metadata } from 'next'
 import { useEffect } from 'react'
 
 import { userStore } from '@/store/userStore'
