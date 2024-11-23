@@ -6,9 +6,11 @@ import { convertToSlug } from '@/lib/utils'
 
 export async function GET(
   _: Request,
-  { params }: { params: { slug: string } },
+  { params }: { params: Promise<{ slug: string }> },
 ) {
-  const slug = z.string().parse(convertToSlug(params.slug))
+  const sluginitial = (await params).slug
+
+  const slug = z.string().parse(convertToSlug(sluginitial))
 
   const product = await prisma.product.findFirst({
     where: {
