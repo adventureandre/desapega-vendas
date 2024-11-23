@@ -1,14 +1,16 @@
-import { api } from '@/lib/api'
-import { prisma } from '@/lib/prisma'
+import { User } from '@prisma/client'
 import { create } from 'zustand'
 
-interface User {
-  id: string
-  createdAt: Date
-  email: string
-  name: string | null
-  password: string
-}
+import { api } from '@/lib/api'
+import { prisma } from '@/lib/prisma'
+
+// interface User {
+//   id: string
+//   createdAt: Date
+//   email: string
+//   name: string | null
+//   password: string
+// }
 
 type UserStore = {
   users: User[] | null
