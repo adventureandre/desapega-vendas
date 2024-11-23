@@ -20,6 +20,8 @@ export function Main() {
     load()
   }, [])
 
+  console.log(products)
+
   return (
     <main className="space-y-6 flex justify-center flex-wrap">
       <section className="max-w-[1100px] space-y-6 min-w-[400px] w-full">

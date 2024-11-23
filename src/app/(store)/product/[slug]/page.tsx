@@ -13,8 +13,10 @@ interface ProductProps {
 export async function generateMetadata({
   params,
 }: ProductProps): Promise<Metadata> {
+  const title = (await params).slug
+
   return {
-    title: params.slug,
+    title,
   }
 }
 
@@ -36,7 +38,9 @@ async function getProduct(slug: string): Promise<ProductItens | null> {
 }
 
 export default async function Product({ params }: ProductProps) {
-  const items = await getProduct(params.slug)
+  const slug = (await params).slug
+
+  const items = await getProduct(slug)
 
   return (
     <>
