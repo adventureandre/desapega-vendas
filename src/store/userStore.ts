@@ -4,7 +4,7 @@ import { User } from '@prisma/client'
 import { create } from 'zustand'
 
 import { api } from '@/lib/api'
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/app/api/lib/prisma'
 
 // interface User {
 //   id: string

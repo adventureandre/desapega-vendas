@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 
-import { prisma } from '@/lib/prisma'
+import { prisma } from '@/app/api/lib/prisma'
 import { convertToSlug } from '@/lib/utils'
 
 export async function GET(
