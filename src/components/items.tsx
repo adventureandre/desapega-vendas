@@ -13,7 +13,7 @@ export function Item({ item }: ItemProps) {
       <Image
         className="w-[250px] h-[300px] rounded-md mb-1"
         src={item.img}
-        alt=""
+        alt={item.name}
         width={450}
         height={450}
       />
