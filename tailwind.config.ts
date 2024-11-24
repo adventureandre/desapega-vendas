@@ -18,6 +18,8 @@ const config: Config = {
         desapegaYellow: '#ff7e3b',
         desapegaRed: '#e81a5d',
         desapegaBlue: '#00a8fb',
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
       },
       fontFamily: {
         sans: 'Roboto',

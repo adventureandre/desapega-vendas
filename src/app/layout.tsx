@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body className={(roboto.className, 'bg-desapegaFundo text-black')}>
+      <body className={(roboto.className, 'background text-foreground')}>
         {children}
       </body>
     </html>
